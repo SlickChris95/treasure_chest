@@ -4,17 +4,17 @@ Treasure Chest
 $project will solve your problem of where to start with documentation,
 by providing a basic explanation of how to do it easily.
 
-Look how easy it is to use:
+What it does?
 
-    import project
-    # Get your stuff done
-    project.do_stuff()
+Treasure chest is an easy and intuitive to use financial budgeting dashboard.
 
 Features
 --------
 
-- Be awesome
-- Make things faster
+- Keeps track of monthly expenses and income.
+- Graphically shows users overall spending vs income earned on a yearly basis.
+- Allows users to allocate a virtual savings with customizable tags
+- Set financial goals
 
 Installation
 ------------
@@ -33,7 +33,7 @@ Support
 -------
 
 If you are having issues, please let us know.
-We have a mailing list located at: project@google-groups.com
+We have a mailing list located at: torres.christian33@yahoo.com
 
 License
 -------
