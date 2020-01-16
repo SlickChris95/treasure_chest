@@ -8,15 +8,9 @@ let url = "mongodb://localhost/treasure_chest"
 
 
 /* APP CONFIG */
-mongoose.connect(url,(err,db)=>{
-  if(err){
-    throw err;
-  }else {
-    console.log('DB Created');
-    db.close();
-  }
-});
-app.set('view engine','ejs')
+mongoose.connect(url);
+app.use(express.static('public'));
+app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 
 //so we can use PUT and Delete requests in our form
@@ -34,25 +28,22 @@ let monthSchema = new mongoose.Schema({
 
 let Month = mongoose.model('Month',monthSchema);
 
-Month.create(
-  {
-    date: "2020-01-15",
-    income: '200',
-    expenses: '20',
-    notes: 'a good month'
-  },(err,month)=>{
-    if(err){
-      console.log(err)
-    }else {
-      console.log('New month');
-      console.log(month)
-    }
-  }
-)
-
-
-
-
+// Month.create(
+//   {
+//     date: "2020-01-15",
+//     income: '200',
+//     expenses: '20',
+//     notes: 'a good month'
+//   },(err,month)=>{
+//     if(err){
+//       console.log(err)
+//     }else {
+//       console.log('New month');
+//       console.log(month)
+//     }
+//   }
+// )
+//
 
 
 app.get('/',(req,res)=>{
@@ -63,15 +54,37 @@ app.get('/',(req,res)=>{
 INDEX ROUTE
 */
 app.get('/months',(req,res)=>{
-  res.send('Months page');
+  Month.find({},(err,months)=>{
+    if(err){
+      console.log(err)
+    }else {
+      res.render('index',{months: months})
+    }
+  })
 });
 
 /*
 NEW ROUTE
 */
-app.get('/months/new',(req,res)=>{
-  res.render('new');
-});
+
+// app.get('/months/new',(req,res)=>{
+//   res.render('new');
+// });
+
+/*
+CREATE ROUTE
+*/
+// app.post('/months',(req,res)=>{
+//   Month.create(req.body.month,(err,newMonth)=>{
+//     if(err){
+//       res.render('new');
+//       console.log('something went wrong')
+//     }else {
+//       // res.redirect('/months');
+//       console.log('post worked')
+//     }
+//   })
+// })
 
 app.listen(port,()=>{
   console.log('server is running...');

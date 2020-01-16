@@ -2,22 +2,22 @@
 
 <div class="ui main text container segment">
   <div class="ui huge header" style="text-align:center;">NEW MONTH</div>
-  <form class="ui form" action="/blogs" method="post">
+  <form class="ui form" action="/months" method="post">
     <div class="field">
       <label>Date</label>
-      <input type="date" name="" placeholder="Month">
+      <input type="date" name="month[month]" placeholder="Month">
     </div>
     <div class="field">
       <label>Income</label>
-      <input type="text" name="" placeholder="Amount earned in month">
+      <input type="text" name="month[income]" placeholder="Amount earned in month">
     </div>
     <div class="field">
       <label>Expense</label>
-      <input type="text" name="" placeholder="Amount spent in month">
+      <input type="text" name="month[expense]" placeholder="Amount spent in month">
     </div>
     <div class="field">
       <label>Notes</label>
-      <textarea name="blog[body]" rows="8" cols="80" required></textarea>
+      <textarea name="blog[notes]" rows="8" cols="80" required></textarea>
     </div>
     <input class="ui violet basic big button" type="submit" name="" value="Submit">
   </form>
