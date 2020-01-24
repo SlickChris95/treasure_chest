@@ -1,9 +1,22 @@
-<h1>Months</h1>
-<% months.forEach(function(m){ %>
-  <div>
-    <h2>
-      <%= m.date %>
-    </h2>
-    <p><%=m.notes %></p>
+<%- include('partials/header') %>
+<div class="right-side" >
+  <h1 class="title" style="text-align:center;">Months</h1>
+  <div class="ui stackable 2 column grid months">
+  <% months.forEach(function(m){ %>
+    <div class= "item month-item">
+      <h2>
+        <%= m.date%>
+      </h2>
+      <div class="meta">
+        <p>Income: <%= m.income %></p>
+      </div>
+      <div class="meta">
+        <p>Expenses: <%= m.expenses %></p>
+      </div>
+      <div class="description">
+        <p>Notes: <%= m.notes.substring(0,30) + ' ...' %></p>
+      </div>
+    </div>
+  <% }) %>
   </div>
-<% }) %>
+</div>

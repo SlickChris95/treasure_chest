@@ -19,7 +19,7 @@ app.use(methodOverride("_method"));
 
 /* MONGOOSE/MODEL CONFIG */
 let monthSchema = new mongoose.Schema({
-  date: Date,
+  date: String,
   income: Number,
   expenses: Number,
   notes: String
@@ -67,24 +67,24 @@ app.get('/months',(req,res)=>{
 NEW ROUTE
 */
 
-// app.get('/months/new',(req,res)=>{
-//   res.render('new');
-// });
+app.get('/months/new',(req,res)=>{
+  res.render('new');
+});
 
 /*
 CREATE ROUTE
 */
-// app.post('/months',(req,res)=>{
-//   Month.create(req.body.month,(err,newMonth)=>{
-//     if(err){
-//       res.render('new');
-//       console.log('something went wrong')
-//     }else {
-//       // res.redirect('/months');
-//       console.log('post worked')
-//     }
-//   })
-// })
+app.post('/months',(req,res)=>{
+  Month.create(req.body.month,(err,newMonth)=>{
+    if(err){
+      res.render('new');
+      console.log('something went wrong')
+    }else {
+      // res.redirect('/months');
+      res.redirect('/months');
+    }
+  })
+})
 
 app.listen(port,()=>{
   console.log('server is running...');
