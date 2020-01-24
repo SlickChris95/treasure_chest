@@ -50,6 +50,7 @@ app.get('/',(req,res)=>{
   res.render('dashboard');
 });
 
+
 /*
 INDEX ROUTE
 */
@@ -84,6 +85,23 @@ app.post('/months',(req,res)=>{
       res.redirect('/months');
     }
   })
+})
+/*
+SHOW ROUTE
+*/
+app.get('/months/:id',(req,res)=>{
+  Month.findById(req.params.id,(err,foundMonth)=>{
+    if(err){
+      res.redirect('/months');
+    }else {
+      res.render("show",{month: foundMonth})
+    }
+  })
+});
+
+
+app.get('/:id',(req,res)=>{
+  res.render('dashboard');
 })
 
 app.listen(port,()=>{
