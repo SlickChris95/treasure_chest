@@ -98,6 +98,16 @@ app.get('/months/:id',(req,res)=>{
     }
   })
 });
+/* EDIT ROUTE */
+app.get('/months/:id/edit',(req,res)=>{
+  Month.findById(req.params.id,(err,foundMonth)=>{
+    if(err){
+      res.redirect('/months');
+    }else {
+      res.render('edit',{month: foundMonth})
+    }
+  })
+})
 
 
 app.get('/:id',(req,res)=>{

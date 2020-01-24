@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<div class="ui main text container segment">
+  <div class="ui huge header" style="text-align:center;">NEW MONTH</div>
+  <form class="ui form" action="/months/<% month._id %>?_method_PUT" method="post">
+    <!-- <div class="field">
+      <label>Date</label>
+      <input type="text" name="month[date]" placeholder="Month">
+    </div> -->
+    <div class="field">
+      <label>Month</label>
+      <select name="month[date]">
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+
+      </select>
+    </div>
+    <div class="field">
+      <label>Income</label>
+      <input type="text" name="month[income]" placeholder="Amount earned in month" value=" <%= month.income %>">
+    </div>
+    <div class="field">
+      <label>Expense</label>
+      <input type="text" name="month[expenses]" placeholder="Amount spent in month" value=" <%= month.expenses %>">
+    </div>
+    <div class="field">
+      <label>Notes</label>
+      <textarea name="month[notes]" rows="8" cols="80" required><%= month.notes %></textarea>
+    </div>
+    <input class="ui violet basic big button" type="submit" name="" value="Submit">
+  </form>
+</div>
+<%- include('partials/footer') %>
