@@ -1,12 +1,8 @@
 <%- include('partials/header') %>
 
 <div class="ui main text container segment">
-  <div class="ui huge header" style="text-align:center;">NEW MONTH</div>
-  <form class="ui form" action="/months/<% month._id %>?_method_PUT" method="post">
-    <!-- <div class="field">
-      <label>Date</label>
-      <input type="text" name="month[date]" placeholder="Month">
-    </div> -->
+    <div class="ui huge header" style="text-align:center;">Edit: <%=month.date %></div>
+  <form class="ui form" action="/months/<% month._id %>?_method=PUT" method="post">
     <div class="field">
       <label>Month</label>
       <select name="month[date]">

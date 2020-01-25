@@ -107,12 +107,24 @@ app.get('/months/:id/edit',(req,res)=>{
       res.render('edit',{month: foundMonth})
     }
   })
+});
+
+/* UPDATE ROUTE */
+app.put('/months/:id',(req,res)=>{
+  Month.findByIdAndUpdate(req.params.id,req.body.month,(err,updatedMonth)=>{
+    if(err){
+      res.redirect('/months');
+      console.log('something went wrong bro ...')
+    }else {
+      res.redirect('/months/'+req.params.id);
+    }
+  })
 })
 
 
-app.get('/:id',(req,res)=>{
-  res.render('dashboard');
-})
+// app.get('/:id',(req,res)=>{
+//   res.render('dashboard');
+// })
 
 app.listen(port,()=>{
   console.log('server is running...');
