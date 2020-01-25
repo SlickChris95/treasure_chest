@@ -39,3 +39,7 @@ body {
 
   padding: 40px;
 }
+
+#delete {
+  display: inline;
+}

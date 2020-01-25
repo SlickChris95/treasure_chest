@@ -121,6 +121,16 @@ app.put('/months/:id',(req,res)=>{
   })
 })
 
+/* DESTROY ROUTE */
+app.delete('/months/:id',(req,res)=>{
+  Month.findByIdAndRemove(req.params.id,(err)=>{
+    if(err){
+      res.redirect('/months');
+    }else {
+      res.redirect('/months');
+    }
+  })
+})
 
 // app.get('/:id',(req,res)=>{
 //   res.render('dashboard');
