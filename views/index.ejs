@@ -14,7 +14,7 @@
         <p>Expenses: <%= m.expenses %></p>
       </div>
       <div class="description">
-        <p>Notes: <%= m.notes.substring(0,30) + ' ...' %></p>
+        <p>Notes: <%= readMore(m.notes,40) %></p>
       </div>
       <div class="extra">
         <a class="ui floated basic violet button" href="/months/<%=m._id%>">Read More</a>
