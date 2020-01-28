@@ -8,7 +8,11 @@ body {
 }
 #test {
   border: 1px solid black;
+  /* background-color: purple; */
+
 }
+/* Navbar styling */
+
 .container {
   /* border: 3px solid black; */
   display: flex;
@@ -21,6 +25,8 @@ body {
   flex: 2;
   text-align: center;
 }
+
+
 .title {
   border: 1px solid black;
   margin: 70px;
